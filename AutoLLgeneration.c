@@ -7,7 +7,7 @@ typedef struct node {
     struct node *north;
 } Node;
 
-// Function to dynamically allocate a node
+// Function to dynamically allocate a node.
 Node* createNode(int data) {
     Node* newNode = (Node*) malloc(sizeof(Node));
     newNode->data = data;
@@ -32,6 +32,7 @@ void fillLinkedList(Node** head, int size) {
     }
 }
 
+
 // Function to print the linked list
 void printLinkedList(Node* head) {
     Node* current = head;
@@ -41,10 +42,10 @@ void printLinkedList(Node* head) {
     }
     printf("NULL\n");
 }
+
 int main() {
     Node* head = NULL;
     fillLinkedList(&head, 1000); // fill the linked list with 20 random nodes
     printLinkedList(head); // print the linked list
-
     return 0;
 }
