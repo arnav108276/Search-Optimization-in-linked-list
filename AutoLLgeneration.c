@@ -47,5 +47,6 @@ int main() {
     Node* head = NULL;
     fillLinkedList(&head, 1000); // fill the linked list with 20 random nodes
     printLinkedList(head); // print the linked list
+    
     return 0;
 }
