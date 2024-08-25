@@ -1,4 +1,5 @@
-#Grey Wolf Optimization (GWO)  is a nature-inspired, metaheuristic optimization algorithm based on the social hierarchy and hunting behavior of grey wolves in the wild. Introduced by Mirjalili et al. in 2014, GWO is used to solve optimization problems in various fields, such as engineering, machine learning, and operational research.
+#Grey Wolf Optimization (GWO)  
+is a nature-inspired, metaheuristic optimization algorithm based on the social hierarchy and hunting behavior of grey wolves in the wild. Introduced by Mirjalili et al. in 2014, GWO is used to solve optimization problems in various fields, such as engineering, machine learning, and operational research.
 
 Key Concepts of GWO:
 
