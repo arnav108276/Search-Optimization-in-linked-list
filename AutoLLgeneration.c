@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct node {
+
+typedef struct node {   //Structure of Linked list
     int data;
     struct node *east;
     struct node *west;
