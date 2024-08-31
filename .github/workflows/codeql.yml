@@ -40,9 +40,14 @@ jobs:
       - if: matrix.build-mode == 'manual'
         name: Install build dependencies
         run: |
+          set -e
           sudo apt-get update
           sudo apt-get install -y gcc
-
+        
+        #Error debugging
+      - name: Show Build Logs
+        if: failure()
+        run: cat build.log || echo "No build log available."
       # Manual build step for C/C++ projects
       - if: matrix.build-mode == 'manual'
         name: Build and Run C/C++ code
