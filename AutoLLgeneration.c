@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct node {
+typedef struct node {            // linked list initialization
     int data;
     struct node *east;
     struct node *west;
