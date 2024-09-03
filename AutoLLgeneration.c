@@ -6,8 +6,8 @@ typedef struct node {            // linked list initialization
     struct node *west;
     struct node *north;
 } Node;
-Node* createNode(int data) {
-    Node* newNode = (Node*) malloc(sizeof(Node));
+Node* createNode(int data) {                                                        
+    Node* newNode = (Node*) malloc(sizeof(Node));                                                      //dynamically memory allocation
     newNode->data = data;
     newNode->east = newNode->west = newNode->north = NULL;
     return newNode;
