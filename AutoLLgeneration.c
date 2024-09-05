@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 typedef struct node {   //Structure of Linked list
     int data;
     struct node *east;
     struct node *west;
     struct node *north;
 } Node;
-Node* createNode(int data) {
-    Node* newNode = (Node*) malloc(sizeof(Node));
+Node* createNode(int data) {                                                        
+    Node* newNode = (Node*) malloc(sizeof(Node));                                                      //dynamically memory allocation
     newNode->data = data;
     newNode->east = newNode->west = newNode->north = NULL;
     return newNode;
