@@ -12,6 +12,7 @@ Node* createNode(int data) {
     newNode->east = newNode->west = newNode->north = NULL;
     return newNode;
 }
+
 // Function to dynamically fill the linked list with random data
 void fillLinkedList(Node** head, int size) {
     srand(time(NULL)); // seed random number generator
