@@ -4,6 +4,7 @@ double fitness(Node* wolf, int target) {
     return abs(wolf->data - target);
 }
 
+
 // GWO search function
 void gwoSearch(Node* head, int target) {
     int n_wolves = 5; // number of grey wolves
