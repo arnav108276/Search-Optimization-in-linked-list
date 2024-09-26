@@ -4,7 +4,6 @@ double fitness(Node* wolf, int target) {
     return abs(wolf->data - target);
 }
 
-
 // GWO search function
 void gwoSearch(Node* head, int target) {
     int n_wolves = 5; // number of grey wolves
@@ -48,13 +47,13 @@ void gwoSearch(Node* head, int target) {
         // Update positions of all wolves
         for (int i = 0; i < n_wolves; i++) {
             if (wolves[i] == alpha) {
-                wolves[i] = alpha - (int)a * (alpha->data - target);
+                wolves[i] = alpha;
             } else if (wolves[i] == beta) {
-                wolves[i] = beta - (int)a * (beta->data - target) + (int)b * (alpha->data - beta->data);
+                wolves[i] = beta;
             } else if (wolves[i] == delta) {
-                wolves[i] = delta - (int)a * (delta->data - target) + (int)b * (beta->data - delta->data);
+                wolves[i] = delta;
             } else {
-                wolves[i] = wolves[i] - (int)a * (wolves[i]->data - target) + (int)b * (alpha->data - wolves[i]->data);
+                wolves[i] = wolves[i]->east;
             }
 
             // Move wolf in a random direction
@@ -74,12 +73,13 @@ void gwoSearch(Node* head, int target) {
                     if (wolves[i]->north != NULL) {
                         wolves[i] = wolves[i]->north;
                     }
-                                case 3:
+                    break;
+                case 3:
                     if (wolves[i]->east != NULL && rand() % 2 == 0) {
                         wolves[i] = wolves[i]->east;
                     } else if (wolves[i]->west != NULL) {
                         wolves[i] = wolves[i]->west;
-                    } else if (wolves[i]->north != NULL) {
+                    } else if (wolves[i]->north != NULL ) {
                         wolves[i] = wolves[i]->north;
                     }
                     break;
@@ -89,22 +89,17 @@ void gwoSearch(Node* head, int target) {
         // Check if any wolf has found the target
         for (int i = 0; i < n_wolves; i++) {
             if (wolves[i]->data == target) {
-                printf("Target %d found at iteration %d!\n", target, iter);
+                Node* current = head;
+                int item_no = 1;
+                while (current != wolves[i]) {
+                    current = current->east;
+                    item_no++;
+                }
+                printf("Target %d found at iteration %d, item no %d!\n", target, iter, item_no);
                 return;
             }
         }
     }
 
     printf("Target %d not found after %d iterations.\n", target, max_iterations);
-}
-
-int main() {
-    Node* head = NULL;
-    fillLinkedList(&head, 1000); // fill the linked list with 20 random nodes
-    printLinkedList(head); // print the linked list
-
-    int target = 42; // target value to search for
-    gwoSearch(head, target); // perform GWO search
-
-    return 0;
 }
