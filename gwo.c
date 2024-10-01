@@ -1,3 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+typedef struct node {
+    int data;
+    struct node* east;
+    struct node* west;
+    struct node* north;
+} Node;
+Node* createNode(int data) {
+    Node* newNode = (Node*) malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->east = newNode->west = newNode->north = NULL;
+    return newNode;
+}
+
+// Function to dynamically fill the linked list with random data
+void fillLinkedList(Node** head, int size, int min, int max) {
+    srand(time(NULL)); // seed random number generator
+    Node* current = *head;
+    for (int i = 0; i < size; i++) {
+        int data = min + rand() % (max - min + 1); // generate random data within the range [min, max]
+        Node* newNode = createNode(data);
+        if (current == NULL) {
+            *head = newNode;
+            current = *head;
+        } else {
+            current->east = newNode;
+            current = current->east;
+        }
+    }
+}
+
+// Function to print the linked list
+void printLinkedList(Node* head) {
+    Node* current = head;
+    while (current != NULL) {
+        printf("%d---> ", current->data);
+        current = current->east;
+    }
+    printf("NULL\n");
+}
 
 // Fitness function for GWO
 double fitness(Node* wolf, int target) {
@@ -5,9 +47,9 @@ double fitness(Node* wolf, int target) {
 }
 
 // GWO search function
-void gwoSearch(Node* head, int target) {
-    int n_wolves = 5; // number of grey wolves
-    int max_iterations = 100;
+void gwoSearch(Node* head, int target,int size) {
+    int n_wolves = 3; 
+    int max_iterations =size/2.5;
     double a = 2, b = 2; // GWO parameters
 
     // Initialize wolves with random positions in the linked list
@@ -55,7 +97,6 @@ void gwoSearch(Node* head, int target) {
             } else {
                 wolves[i] = wolves[i]->east;
             }
-
             // Move wolf in a random direction
             int direction = rand() % 4;
             switch (direction) {
@@ -104,10 +145,21 @@ void gwoSearch(Node* head, int target) {
     printf("Target %d not found after %d iterations.\n", target, max_iterations);
 }
 
+int main() {
+    int size, min, max;
+    printf("Enter the number of data items to generate: ");
+    scanf("%d", &size);
+    printf("Enter the minimum value of the range: ");
+    scanf("%d", &min);
+    printf("Enter the maximum value of the range: ");
+    scanf("%d", &max);
 
+    Node* head = NULL;
+    fillLinkedList(&head, size, min, max); 
+    printLinkedList(head); 
 
+    int target = 45;
+    gwoSearch(head, target,size); 
 
-
-
-
-
+    return 0;
+}  
