@@ -1,22 +1,18 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 typedef struct node {
     int data;
     struct node* east;
     struct node* west;
     struct node* north;
 } Node;
-
 Node* createNode(int data) {
     Node* newNode = (Node*) malloc(sizeof(Node));
     newNode->data = data;
     newNode->east = newNode->west = newNode->north = NULL;
     return newNode;
 }
-
 // Function to dynamically fill the linked list with random data
 void fillLinkedList(Node** head, int size, int min, int max) {
     srand(time(NULL)); // seed random number generator
@@ -33,7 +29,6 @@ void fillLinkedList(Node** head, int size, int min, int max) {
         }
     }
 }
-
 // Function to print the linked list
 void printLinkedList(Node* head) {
     Node* current = head;
