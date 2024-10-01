@@ -15,7 +15,7 @@
 **1. Do not exploit the vulnerability.** 
 This could compromise the security of our users and systems.
 
-**2. Report the vulnerability privately** to our security team at [[email protected]] (replace with your actual email address).
+**2. Report the vulnerability privately** to our security team at [[arnav9368543702@gmail.com]].
 
 **3. Provide detailed information** about the vulnerability, including:
 
