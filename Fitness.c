@@ -1,3 +1,4 @@
+
 // Fitness function for GWO
 double fitness(Node* wolf, int target) {
     return abs(wolf->data - target);
@@ -102,4 +103,11 @@ void gwoSearch(Node* head, int target) {
 
     printf("Target %d not found after %d iterations.\n", target, max_iterations);
 }
+
+
+
+
+
+
+
 
