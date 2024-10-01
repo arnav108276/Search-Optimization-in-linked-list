@@ -1,4 +1,4 @@
-Grey Wolf Optimization (GWO) Search Algorithm with CodeQL & Dependabot Integration
+# Grey Wolf Optimization (GWO) Search Algorithm with CodeQL & Dependabot Integration
 
 ### Table of Contents
 
