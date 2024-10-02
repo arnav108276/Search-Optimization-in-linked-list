@@ -11,6 +11,7 @@
 ## Reporting a Vulnerability
 
 ### If you discover a vulnerability in our project, please follow these steps responsibly:
+**Either report via Pull requests or by mailing at arnav9368543702@gmail.com**
 
 **1. Do not exploit the vulnerability.** 
 This could compromise the security of our users and systems.
@@ -30,4 +31,3 @@ We will treat your report with the utmost confidentiality and will not disclose 
 **5. Collaborate with us** to resolve the vulnerability as quickly and efficiently as possible.
 
 **We appreciate your commitment to helping us maintain the security of our project!**
-**Either report via Pull requests or by mailing at arnav9368543702@gmail.com**
