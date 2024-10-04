@@ -10,11 +10,11 @@ typedef struct node {
 Node* createNode(int data) {
     Node* newNode = (Node*) malloc(sizeof(Node));
     newNode->data = data;
-    newNode->east = newNode->west = newNode->north = NULL;
+    newNode->west = newNode->north = newNode->east = NULL;
     return newNode;
 }
 // Function to dynamically fill the linked list with random data
-void fillLinkedList(Node** head, int size, int min, int max) {
+void fillLinkedList( int size,Node** head, int min, int max) {
     srand(time(NULL)); // seed random number generator
     Node* current = *head;
     for (int i = 0; i < size; i++) {
@@ -47,9 +47,8 @@ int main() {
     scanf("%d", &min);
     printf("Enter the maximum value of the range: ");
     scanf("%d", &max);
-
     Node* head = NULL;
-    fillLinkedList(&head, size, min, max); // fill the linked list with random nodes within the specified range
+    fillLinkedList(size,&head,  min, max); // fill the linked list with random nodes within the specified range
     printLinkedList(head); // print the linked list
     return 0;
 }
