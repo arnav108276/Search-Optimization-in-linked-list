@@ -30,7 +30,6 @@ void fillLinkedList(Node** head, int size, int min, int max) {
         }
     }
 }
-
 // Function to print the linked list
 void printLinkedList(Node* head) {
     Node* current = head;
@@ -45,11 +44,10 @@ void printLinkedList(Node* head) {
 double fitness(Node* wolf, int target) {
     return abs(wolf->data - target);
 }
-
 // GWO search function
 void gwoSearch(Node* head, int target,int size) {
     int n_wolves = 3; 
-    int max_iterations =size/2.5;
+    int max_iterations =size/2.7;
     double a = 2, b = 2; // GWO parameters
 
     // Initialize wolves with random positions in the linked list
@@ -62,15 +60,13 @@ void gwoSearch(Node* head, int target,int size) {
             }
         }
     }
-
     for (int iter = 0; iter < max_iterations; iter++) {
         // Encircle: calculate fitness of each wolf
         double fitness_values[n_wolves];
         for (int i = 0; i < n_wolves; i++) {
             fitness_values[i] = fitness(wolves[i], target);
         }
-
-        // Hunt: identify the three best wolves
+        // Hunt: identify the three best wolves ⋉ ₿ ₷
         Node* alpha, *beta, *delta;
         alpha = beta = delta = NULL;
         for (int i = 0; i < n_wolves; i++) {
