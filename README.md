@@ -77,12 +77,12 @@ Grey Wolf Optimization (GWO) is a metaheuristic optimization algorithm that mimi
 
 2. Compile the project:
     ```bash
-    gcc fitness.c -o gwo_search
+    gcc gwo.c -o optimization
     ```
 
 3. Run the program:
     ```bash
-    ./gwo_search
+    ./optimization
     ```
 
 ---
@@ -90,7 +90,7 @@ Grey Wolf Optimization (GWO) is a metaheuristic optimization algorithm that mimi
 ## Usage
 
 1. **Running the Algorithm**:
-    - Modify the target and node list in `fitness.c` to match your specific search space.
+    - Modify the target and node list in `gwo.c` to match your specific search space.
     - Compile and execute the program as described in the Installation section.
 
 ---
