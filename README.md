@@ -11,7 +11,6 @@
 5. Usage
 6. CodeQL and Security Integration
     - CodeQL Analysis
-    - Security Policy
 7. Dependabot Integration
 8. Contributing
 9. License
@@ -105,18 +104,6 @@ Grey Wolf Optimization (GWO) is a metaheuristic optimization algorithm that mimi
 This project uses GitHub Actions to automate the analysis of code with CodeQL. This helps in identifying potential security vulnerabilities and ensures high code quality. The analysis runs automatically on each push and pull request.The workflow runs everyday at night 00:30am and everytime a commit is been made and checks for any vunerabilities in code
 ![image](https://github.com/user-attachments/assets/8abed6da-38e9-4fc7-b2d2-73b9cbf147c0)
 (Uploaded on October3)
-
-
-### Security Policy
-
-| Tasks                                   | Allowed          |
-|-----------------------------------------|------------------|
-| Commit to individual branch             | :white_check_mark: |
-| Commit to main branch directly          | :x:              |
-| Propose issues                          | :white_check_mark: |
-| Code analysis                           | :white_check_mark: |
-| Public License                          | :white_check_mark: |
-
 
 ## Dependabot Integration
 
