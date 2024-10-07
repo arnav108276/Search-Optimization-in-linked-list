@@ -14,6 +14,17 @@ Node* createNode(int data) {
     return newNode;
 }
 
+void deleteLinkedList(Node* head) {
+    Node* current = head;
+    Node* nextNode;
+    while (current != NULL) {
+        nextNode = current->east; 
+        free(current);             
+        current = nextNode;       
+    }
+}
+
+
 // Function to dynamically fill the linked list with random data
 void fillLinkedList(Node** head, int size, int min, int max) {
     srand(time(NULL)); // seed random number generator
@@ -140,7 +151,6 @@ void gwoSearch(Node* head, int target,int size) {
 
     printf("Target %d not found after %d iterations.\n", target, max_iterations);
 }
-
 int main() {
     int size, min, max;
     printf("Enter the number of data items to generate: ");
@@ -155,7 +165,11 @@ int main() {
     printLinkedList(head); 
 
     int target = 45;
-    gwoSearch(head, target,size); 
+    gwoSearch(head, target, size);
+
+    // Delete the linked list after operations
+    deleteLinkedList(head);
 
     return 0;
-}  
+}
+
