@@ -33,7 +33,7 @@ void fillLinkedList( int size,Node** head, int min, int max) {
 void printLinkedList(Node* head) {
     Node* current = head;
     while (current != NULL) {
-        printf("%d---> ", current->data);
+        printf("%d—-> ", current->data);
         current = current->east;
     }
     printf("NULL\n");
