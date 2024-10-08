@@ -58,7 +58,6 @@ double fitness(Node* wolf, int target) {
 // GWO search function
 void gwoSearch(Node* head, int target,int size) {
     int n_wolves = 3; 
-    int max_iterations =size/2.7;
     double a = 2, b = 2; // GWO parameters
 
     // Initialize wolves with random positions in the linked list
@@ -71,7 +70,7 @@ void gwoSearch(Node* head, int target,int size) {
             }
         }
     }
-    for (int iter = 0; iter < max_iterations; iter++) {
+    for (int iter = 0; iter < size; iter++) {
         // Encircle: calculate fitness of each wolf
         double fitness_values[n_wolves];
         for (int i = 0; i < n_wolves; i++) {
