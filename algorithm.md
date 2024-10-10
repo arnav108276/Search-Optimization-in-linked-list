@@ -7,9 +7,7 @@
     //    X_alpha = the best found agent
     X <- Initialize the grey wolf population with n agents
     Initialize a, A, and C
-
     Calculate the fitness of each search agent
-
     X_alpha <- the best search agent
     X_beta <- the second best search agent
     X_delta <- the third best search agent
