@@ -161,7 +161,7 @@ int main() {
 
     Node* head = NULL;
     fillLinkedList(&head, size, min, max); 
-    printLinkedList(head); 
+    // printLinkedList(head); 
 
     int target = 45;
     gwoSearch(head, target, size);
