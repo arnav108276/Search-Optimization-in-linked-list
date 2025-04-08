@@ -7,6 +7,7 @@ typedef struct node {
     struct node* west;
     struct node* north;
 } Node;
+
 Node* createNode(int data) {
     Node* newNode = (Node*) malloc(sizeof(Node));
     newNode->data = data;
@@ -41,6 +42,7 @@ void fillLinkedList(Node** head, int size, int min, int max) {
         }
     }
 }
+
 // Function to print the linked list
 void printLinkedList(Node* head) {
     Node* current = head;
@@ -55,8 +57,9 @@ void printLinkedList(Node* head) {
 double fitness(Node* wolf, int target) {
     return abs(wolf->data - target);
 }
+
 // GWO search function
-void gwoSearch(Node* head, int target,int size) {
+void gwoSearch(Node* head, int target, int size) {
     int n_wolves = 3; 
     double a = 2, b = 2; // GWO parameters
 
@@ -70,25 +73,41 @@ void gwoSearch(Node* head, int target,int size) {
             }
         }
     }
+    
     for (int iter = 0; iter < size; iter++) {
         // Encircle: calculate fitness of each wolf
         double fitness_values[n_wolves];
         for (int i = 0; i < n_wolves; i++) {
             fitness_values[i] = fitness(wolves[i], target);
         }
-        // Hunt: identify the three best wolves ⋉ ₿ ₷
-        Node* alpha, *beta, *delta;
-        alpha = beta = delta = NULL;
+        
+        // Hunt: identify the three best wolves
+        Node* alpha = NULL;
+        Node* beta = NULL;
+        Node* delta = NULL;
+        
+        // Initialize with high fitness values
+        double alpha_fitness = 1e9;
+        double beta_fitness = 1e9;
+        double delta_fitness = 1e9;
+        
+        // Find the three best wolves based on fitness
         for (int i = 0; i < n_wolves; i++) {
-            if (fitness_values[i] < fitness_values[wolves[i] == alpha ? i : 0]) {
+            if (fitness_values[i] < alpha_fitness) {
                 delta = beta;
+                delta_fitness = beta_fitness;
                 beta = alpha;
+                beta_fitness = alpha_fitness;
                 alpha = wolves[i];
-            } else if (fitness_values[i] < fitness_values[wolves[i] == beta ? i : 0]) {
+                alpha_fitness = fitness_values[i];
+            } else if (fitness_values[i] < beta_fitness) {
                 delta = beta;
+                delta_fitness = beta_fitness;
                 beta = wolves[i];
-            } else if (fitness_values[i] < fitness_values[wolves[i] == delta ? i : 0]) {
+                beta_fitness = fitness_values[i];
+            } else if (fitness_values[i] < delta_fitness) {
                 delta = wolves[i];
+                delta_fitness = fitness_values[i];
             }
         }
 
@@ -103,6 +122,7 @@ void gwoSearch(Node* head, int target,int size) {
             } else {
                 wolves[i] = wolves[i]->east;
             }
+            
             // Move wolf in a random direction
             int direction = rand() % 4;
             switch (direction) {
@@ -126,7 +146,7 @@ void gwoSearch(Node* head, int target,int size) {
                         wolves[i] = wolves[i]->east;
                     } else if (wolves[i]->west != NULL) {
                         wolves[i] = wolves[i]->west;
-                    } else if (wolves[i]->north != NULL ) {
+                    } else if (wolves[i]->north != NULL) {
                         wolves[i] = wolves[i]->north;
                     }
                     break;
@@ -142,14 +162,16 @@ void gwoSearch(Node* head, int target,int size) {
                     current = current->east;
                     item_no++;
                 }
-                printf("Target %d found at iteration %d, item no %d!\n", target, iter, item_no);
+                printf("Target %d found at iteration %d, item no %d!\n", target, iter , item_no);
                 return;
             }
         }
     }
-
-    printf("Target %d not found after %d iterations.\n", target, max_iterations);
+    // If target not found after all iterations
+    // Fixed: Using 'size' instead of 'iterations' or 'max_iterations'
+    printf("Target %d not found after %d iterations.\n", target, size);
 }
+
 int main() {
     int size, min, max;
     printf("Enter the number of data items to generate: ");
@@ -163,7 +185,7 @@ int main() {
     fillLinkedList(&head, size, min, max); 
     // printLinkedList(head); 
 
-    int target = 45;
+    int target = 145;
     gwoSearch(head, target, size);
 
     // Delete the linked list after operations
