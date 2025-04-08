@@ -157,12 +157,12 @@ void gwoSearch(Node* head, int target, int size) {
         for (int i = 0; i < n_wolves; i++) {
             if (wolves[i]->data == target) {
                 Node* current = head;
-                int item_no = 1;
+                int no = 1;
                 while (current != wolves[i]) {
                     current = current->east;
-                    item_no++;
+                    no++;
                 }
-                printf("Target %d found at iteration %d, item no %d!\n", target, iter , item_no);
+                printf("Target %d found at iteration %d, item no %d!\n", target, no,iter);
                 return;
             }
         }
