@@ -1,12 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+
+
+
 typedef struct node {
     int data;
     struct node* east;
     struct node* west;
     struct node* north;
 } Node;
+
+
 Node* createNode(int data) {
     Node* newNode = (Node*) malloc(sizeof(Node));
     newNode->data = data;
