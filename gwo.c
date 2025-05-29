@@ -148,7 +148,7 @@ void gwoSearch(Node* head, int target,int size) {
         }
     }
 
-    printf("Target %d not found after %d iterations.\n", target, max_iterations);
+    printf("Target %d not found after %d iterations.\n", target, size);
 }
 int main() {
     int size, min, max;
@@ -161,7 +161,7 @@ int main() {
 
     Node* head = NULL;
     fillLinkedList(&head, size, min, max); 
-    printLinkedList(head); 
+    // printLinkedList(head); 
 
     int target = 45;
     gwoSearch(head, target, size);
